@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Determine project name based on current directory
+#PROJECT=$(basename $PWD)
+PROJECT="meego-handset-dialer-translations"
+
+# NOTE: Don't like this?  Then uncomment one of the following as appropriate
+#
+# Just set it explictly to whatever you like:
+# PROJECT=libseaside
+#
+# Parse it from any Qt *.pro or *.pri files in CWD:
+# PROJECT=$(grep -E "TARGET ?= ?" *.pr[io]|cut -d' ' -f3)
+
+# Grab most recent tag from git
+TAG=$(git describe --tags --abbrev=0)
+
+# Parse out just the version number
+PARTS=(${TAG//-/ })
+VERSION=${PARTS[1]}
+
+# Set name of toplevel directory for the archive
+BASE_PREFIX="${PROJECT}-${VERSION}/"
+
+# Set name of resulting release archive file
+BASE_ARCHIVE=${PROJECT}-${VERSION}.tar.bz2
+
+# Clean up any existing base package for this version
+[ -e ${BASE_ARCHIVE} ] && rm -rf ${BASE_ARCHIVE} &&
+	echo "Removed: ${BASE_ARCHIVE}"
+
+# Generate the base package release tar ball
+git archive --prefix=${BASE_PREFIX} ${TAG} | bzip2 -c -- > ${BASE_ARCHIVE} && {
+	echo "Created: ${BASE_ARCHIVE}"
+} || {
+	echo "Creation of release archive ${BASE_ARCHIVE} failed.  Reason unknown."
+}

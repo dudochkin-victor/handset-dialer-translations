@@ -1,0 +1,29 @@
+Changes in 0.0.4
+
+7914 Pull from Transifex: add Czech and Ukranian translations.
+dd14 Pull from Transifex: update existing translations
+6c10 Add a config file for transifex-client
+
+Changes in 0.0.3
+
+7b6bc Updated .ts files to package meego-handset-dialer commit-id 'b12db829'
+b12d Updated .ts files to package meego-handset-dialer commit-id 'e41c255fb'
+7b38 Copy en translations to en_US
+
+Changes in 0.0.2
+
+2a62 Updated .ts files to package meego-handset-dialer commit-id '5357a6e'
+1b9a Updated en translations
+2312 Updated .ts files to package meego-handset-dialer commit-id '8a1fb37'
+b83d Initial en translations
+db84 Adding ignores file
+5508 All languages on one line for yaml scripts
+cb3b Removed Makefile, should not be checked in
+
+Changes in 0.0.1
+
+2c8d... Adding version tag and dist utilities
+d0f1... Updated supported languages
+438e... Added LICENSE terms
+03d6... Initial .ts files generated from meego-handset-dialer
+

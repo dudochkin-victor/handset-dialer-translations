@@ -1,0 +1,7 @@
+[main]
+host = https://meego.transifex.net
+
+[meego-handset.meego-handset-dialer]
+file_filter = dialer_<lang>.ts
+source_lang = en
+
